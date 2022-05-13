@@ -1,0 +1,53 @@
+{
+  "definition": {
+    "openapi": "3.0.0",
+    "info": {
+      "title": "API Ecommerce MERN",
+      "version": "1.0.0",
+      "description": "Information about API and endpoints",
+      "contact": {
+        "name": "Miguel Chamorro",
+        "url": "https://escalab.academy/",
+        "email": "mchamorro@escalab.academy"
+      },
+      "license": {
+        "name": "MIT",
+        "url": "https://spdx.org/licenses/MIT.html"
+      }
+    },
+    "securityDefinitions": {
+      "firebase": {
+        "authorizationUrl": "http://localhost:3000/login",
+        "flow": "implicit",
+        "type": "oauth2",
+        "x-google-issuer": "https://securetoken.google.com/ecommerce-sodimac",
+        "x-google-jwks_uri": "https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com",
+        "x-google-audiences": "ecommerce-sodimac",
+        "scopes": {
+          "https://www.googleapis.com/auth/firebase": "Firebase scope"
+        },
+        "api_key": {
+          "type": "apiKey",
+          "name": "authtoken",
+          "in": "header"
+        }
+      }
+    },
+    "security": [
+      {
+        "firebase": []
+      }
+    ],
+    "servers": [
+      {
+        "url": "http://localhost:8000",
+        "description": "Development Server"
+      },
+      {
+        "url": "http://256489656656.aws.amazon.com",
+        "description": "Production Server"
+      }
+    ]
+  },
+  "apis": ["./routes/*.js"]
+}
