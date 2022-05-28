@@ -55,7 +55,7 @@ app.use(cookieSession({
   keys: [ config.COOKIE_KEY_1, config.COOKIE_KEY_2 ],
 }));
 app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.session()); //automaticamente 
 
 function checkLoggedIn(req, res, next) { 
   console.log('Current user is:', req.user);
